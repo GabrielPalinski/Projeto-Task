@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>TaskFlow</title>
+
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}"
+>
+
+</head>
+
+<body>
+
+<h1>TaskFlow Agile Manager</h1>
+
+<a href="/create">
+
+Nova Tarefa
+
+</a>
+
+{% for task in tasks %}
+
+<div class="task-card">
+
+<h2>
+
+{{ task.title }}
+
+</h2>
+
+<p>
+
+{{ task.description }}
+
+</p>
+
+<p>
+
+Prioridade:
+
+{{ task.priority }}
+
+</p>
+
+<p>
+
+Status:
+
+{{ task.status }}
+
+</p>
+
+<a href="/edit/{{ loop.index0 }}">
+
+Editar
+
+</a>
+
+<a href="/delete/{{ loop.index0 }}">
+
+Excluir
+
+</a>
+
+</div>
+
+{% endfor %}
+
+</body>
+
+</html>
